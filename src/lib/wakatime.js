@@ -159,7 +159,7 @@ function convertThis() {
   // Parse data for last seven days of work and print to console
   var week = function(day, dayText, day2){
     var apiKey = readApiKey();
-    request("https://wakatime.com/api/v1/summary/daily?start="+day+"&end="+day2+"&api_key=99a5fbb5-6028-4419-b18a-673cd8917f41", function (error, response, body) {
+    request("https://wakatime.com/api/v1/summary/daily?start="+day+"&end="+day2+"&api_key="+apiKey, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         var body = JSON.parse(body);
         var gtHours = 0;
