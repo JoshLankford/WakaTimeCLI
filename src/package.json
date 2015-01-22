@@ -1,0 +1,24 @@
+{
+  "name": "WakaTimeCLI",
+  "version": "0.1.0",
+    "repository": {
+    "url": "https://github.com/JoshLankford/WakaTimeCLI"
+  },
+  "description": "See your WakaTime report directly in the terminal",
+  "main": "./lib/wakatime",
+  "preferGlobal": "true",
+  "bin": {
+    "wakatime": "./bin/wakatime"
+  },
+  "keywords": [
+    "wakatime",
+    "cli"
+  ],
+  "author": "Josh Lankford <lankford.josh@gmail.com> (http://joshlankford.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.8.2",
+    "cli-color": "^0.3.2",
+    "request": "^2.51.0"
+  }
+}
