@@ -1,0 +1,21 @@
+{
+  "name": "WakaTimeCLI",
+  "version": "0.1.0",
+  "description": "See your WakaTime report directly in the terminal",
+  "main": "script.js",
+  "preferGlobal": "true",
+  "bin": {
+    "wakatime": "./app/script.js"
+  },
+  "keywords": [
+    "wakatime",
+    "cli"
+  ],
+  "author": "Josh Lankford <lankford.josh@gmail.com> (http://joshlankford.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.8.2",
+    "cli-color": "^0.3.2",
+    "request": "^2.51.0"
+  }
+}
