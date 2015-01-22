@@ -4,7 +4,7 @@ WalkaTimeCLI allows you to see your WakaTime.com reports from your command line.
 ###Installation
 
 ```shell
-$ npm install -g WakaTimeCLI
+$ npm install -g wakatimecli
 ```
 ###Configuration
 
