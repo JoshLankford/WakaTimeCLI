@@ -1,82 +1,37 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'WakaTimeCLI' ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
 2 info using npm@1.4.23
 3 info using node@v0.10.31
-4 verbose cache add [ 'WakaTimeCLI', null ]
-5 verbose cache add name=undefined spec="WakaTimeCLI" args=["WakaTimeCLI",null]
-6 verbose parsed url { protocol: null,
-6 verbose parsed url   slashes: null,
-6 verbose parsed url   auth: null,
-6 verbose parsed url   host: null,
-6 verbose parsed url   port: null,
-6 verbose parsed url   hostname: null,
-6 verbose parsed url   hash: null,
-6 verbose parsed url   search: null,
-6 verbose parsed url   query: null,
-6 verbose parsed url   pathname: 'WakaTimeCLI',
-6 verbose parsed url   path: 'WakaTimeCLI',
-6 verbose parsed url   href: 'WakaTimeCLI' }
-7 silly lockFile d9e6f59d-WakaTimeCLI WakaTimeCLI
-8 verbose lock WakaTimeCLI /Users/Josh/.npm/d9e6f59d-WakaTimeCLI.lock
-9 silly lockFile d9e6f59d-WakaTimeCLI WakaTimeCLI
-10 silly lockFile d9e6f59d-WakaTimeCLI WakaTimeCLI
-11 verbose addNamed [ 'WakaTimeCLI', '' ]
-12 verbose addNamed [ null, '*' ]
-13 silly lockFile b74edaf6-WakaTimeCLI WakaTimeCLI@
-14 verbose lock WakaTimeCLI@ /Users/Josh/.npm/b74edaf6-WakaTimeCLI.lock
-15 silly addNameRange { name: 'WakaTimeCLI', range: '*', hasData: false }
-16 verbose request where is /WakaTimeCLI
-17 verbose request registry https://registry.npmjs.org/
-18 verbose request id 23459e0237d6b67a
-19 verbose url raw /WakaTimeCLI
-20 verbose url resolving [ 'https://registry.npmjs.org/', './WakaTimeCLI' ]
-21 verbose url resolved https://registry.npmjs.org/WakaTimeCLI
-22 verbose request where is https://registry.npmjs.org/WakaTimeCLI
-23 info trying registry request attempt 1 at 23:03:19
-24 http GET https://registry.npmjs.org/WakaTimeCLI
-25 http 404 https://registry.npmjs.org/WakaTimeCLI
-26 verbose headers { date: 'Thu, 22 Jan 2015 07:03:20 GMT',
-26 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-26 verbose headers   'content-type': 'application/json',
-26 verbose headers   'cache-control': 'max-age=0',
-26 verbose headers   'content-length': '52',
-26 verbose headers   'accept-ranges': 'bytes',
-26 verbose headers   via: '1.1 varnish',
-26 verbose headers   age: '0',
-26 verbose headers   'x-served-by': 'cache-lax1425-LAX',
-26 verbose headers   'x-cache': 'MISS',
-26 verbose headers   'x-cache-hits': '0',
-26 verbose headers   'x-timer': 'S1421910200.284788,VS0,VE330',
-26 verbose headers   'keep-alive': 'timeout=10, max=50',
-26 verbose headers   connection: 'Keep-Alive' }
-27 silly registry.get cb [ 404,
-27 silly registry.get   { date: 'Thu, 22 Jan 2015 07:03:20 GMT',
-27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-27 silly registry.get     'content-type': 'application/json',
-27 silly registry.get     'cache-control': 'max-age=0',
-27 silly registry.get     'content-length': '52',
-27 silly registry.get     'accept-ranges': 'bytes',
-27 silly registry.get     via: '1.1 varnish',
-27 silly registry.get     age: '0',
-27 silly registry.get     'x-served-by': 'cache-lax1425-LAX',
-27 silly registry.get     'x-cache': 'MISS',
-27 silly registry.get     'x-cache-hits': '0',
-27 silly registry.get     'x-timer': 'S1421910200.284788,VS0,VE330',
-27 silly registry.get     'keep-alive': 'timeout=10, max=50',
-27 silly registry.get     connection: 'Keep-Alive' } ]
-28 silly lockFile b74edaf6-WakaTimeCLI WakaTimeCLI@
-29 silly lockFile b74edaf6-WakaTimeCLI WakaTimeCLI@
-30 error 404 404 Not Found: WakaTimeCLI
-30 error 404
-30 error 404 'WakaTimeCLI' is not in the npm registry.
-30 error 404 You should bug the author to publish it
-30 error 404
-30 error 404 Note that you can also install from a
-30 error 404 tarball, folder, or http url, or git url.
-31 error System Darwin 14.0.0
-32 error command "node" "/usr/local/bin/npm" "install" "-g" "WakaTimeCLI"
-33 error cwd /Users/Josh/Documents/code/nodeExecScript
-34 error node -v v0.10.31
-35 error npm -v 1.4.23
-36 error code E404
-37 verbose exit [ 1, true ]
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/Josh/.npm/3a52ce78-.lock
+10 silly lockFile 3a52ce78- .
+11 silly lockFile 3a52ce78- .
+12 error addLocal Could not install .
+13 error Error: ENOENT, open 'package.json'
+14 error If you need help, you may report this *entire* log,
+14 error including the npm and node versions, at:
+14 error     <http://github.com/npm/npm/issues>
+15 error System Darwin 14.0.0
+16 error command "node" "/usr/local/bin/npm" "publish"
+17 error cwd /Users/Josh/Documents/code/nodeExecScript
+18 error node -v v0.10.31
+19 error npm -v 1.4.23
+20 error path package.json
+21 error code ENOENT
+22 error errno 34
+23 verbose exit [ 34, true ]
