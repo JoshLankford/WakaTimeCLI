@@ -6,7 +6,7 @@ WalkaTimeCLI allows you to see your WakaTime.com reports from your command line.
 ```shell
 $ npm install -g WakaTimeCLI
 ```
-##Configuration
+###Configuration
 
 Log into your WakaTime.com account and find your API Key in the settings (https://wakatime.com/settings).
 
@@ -16,7 +16,7 @@ $ wakatime -api yourApiKeyHere
 ```
 
 
-##Usage
+###Usage
 
 Display WakaTime data from today:
 ```shell
@@ -33,6 +33,6 @@ Display WakaTime data from the last 7 days:
 $ wakatime -w or $ wakatime -week
 ```
 
-##Info
+###Info
 
 Written using the WakaTime API (https://wakatime.com/api).
