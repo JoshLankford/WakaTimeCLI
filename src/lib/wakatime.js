@@ -14,10 +14,12 @@ function convertThis() {
   var magenta = clc.magenta;
 
   var apiString = '?api_key=';
+  var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.env.HOME;
+  var wakafile = homedir + '/.wakafile';
 
   // Stores API Key in app directory'
   var setApiKey = function(apiKey){
-    fs.writeFile('.wakatimeKey', apiKey, function (err) {
+    fs.writeFile(wakafile, apiKey, function (err) {
       if (err) throw err;
       console.log('API key saved.');
     });
@@ -37,14 +39,14 @@ function convertThis() {
   var readApiKey =  function(){
     var key;
     try {
-      key = fs.readFileSync('.wakatimeKey','utf8');
+      key = fs.readFileSync(wakafile,'utf8');
     } catch (e) {
       fileError();
     }
     if(key === ''){
       fileError();
     }
-    return fs.readFileSync('.wakatimeKey','utf8');
+    return fs.readFileSync(wakafile,'utf8');
   }
 
   // Date function used to format date on API request
