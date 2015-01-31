@@ -72,28 +72,21 @@ function convertThis() {
     }
   };
 
-  // Calculates time for each language or project in an object
-  var calcTime = function(obj){
-    for(key in obj){
-      var hours = obj[key][0];
-      var minutes = obj[key][1];
-      if(minutes > 59) {
-        var hours = hours + Math.floor(minutes / 60);          
-        var minutes = minutes % 60;
-      }
-      obj[key][0] = hours;
-      obj[key][1] = minutes;
-    }
-    return obj;
+  var formatTime = function(seconds) {
+    hour = ~~(seconds / 3600);
+    minute = ~~((seconds - (hour * 3600)) / 60);
+    second = seconds % 60;
+    return hour + ' hours ' + minute + ' minutes ' + second + ' seconds '
   }
 
+
   // Prints provided obj to terminal with magenta or blue color
-  var printObj = function(obj, color){
+  var printSection = function(obj, color){
     for(key in obj){
       if(color === 'magenta'){
-        console.log(magenta(' ' + key + ': ') + obj[key][0] + ' hours ' + obj[key][1] + ' minutes');
+        console.log(magenta(' ' + key + ': ') + formatTime(obj[key]));
       } else if(color === 'blue'){
-        console.log(blue(' ' + key + ': ') + obj[key][0] + ' hours ' + obj[key][1] + ' minutes');
+        console.log(blue(' ' + key + ': ') + formatTime(obj[key]));
       }
     }
   };
@@ -185,12 +178,10 @@ function convertThis() {
         // Adds all corresponding time to each language
         body.data.forEach(function(val){
           val.languages.forEach(function(val){
-            var time = [val.hours, val.minutes];
             if (!(val.name in languages)) {
-              languages[val.name] = time;
+              languages[val.name] = val.total_seconds;
             } else {
-              languages[val.name][0] = languages[val.name][0] + val.hours;
-              languages[val.name][1] = languages[val.name][1] + val.minutes;
+              languages[val.name] = languages[val.name] + val.total_seconds;
             }
           })
         })
@@ -201,10 +192,9 @@ function convertThis() {
           val.projects.forEach(function(val){
             var time = [val.hours, val.minutes];
             if (!(val.name in projects)) {
-              projects[val.name] = time;
+              projects[val.name] = val.total_seconds;
             } else {
-              projects[val.name][0] = projects[val.name][0] + val.hours;
-              projects[val.name][1] = projects[val.name][1] + val.minutes;
+              projects[val.name] = projects[val.name] + val.total_seconds;
             }
           })
         })
@@ -213,11 +203,9 @@ function convertThis() {
         console.log(' '); // Empty Line for formatting
         console.log(' ' +cyan('Week: ') + gtHours + ' hours ' + gtMinutes + ' minutes (Total)'); // Prints calculated total hours/minutes
         console.log(' '); // Empty Line for formatting
-        calcTime(languages); // Calcuates hours/minutes for each language
-        printObj(languages, 'magenta'); // Prints each item in the obj
+        printSection(languages, 'magenta'); // Prints each item in the obj
         console.log(' '); // Empty Line for formatting
-        calcTime(projects); // Calcuates hours/minutes for each project
-        printObj(projects, 'blue'); // Prints each item in the obj
+        printSection(projects, 'blue'); // Prints each item in the obj
         console.log(' '); // Empty Line for formatting
 
       } else {
