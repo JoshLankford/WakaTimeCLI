@@ -82,11 +82,18 @@ function convertThis() {
 
   // Prints provided obj to terminal with magenta or blue color
   var printSection = function(obj, color){
-    for(key in obj){
+    // sort it first
+    sortable = [];
+    for (key in obj) {
+      sortable.push([key, obj[key]])
+    }
+    sorted = sortable.sort(function(a, b) { return b[1] - a[1]});
+
+    for (var i=0; i<sorted.length; i++){
       if(color === 'magenta'){
-        console.log(magenta(' ' + key + ': ') + formatTime(obj[key]));
+        console.log(magenta(' ' + sorted[i][0] + ': ') + formatTime(sorted[i][1]));
       } else if(color === 'blue'){
-        console.log(blue(' ' + key + ': ') + formatTime(obj[key]));
+        console.log(blue(' ' + sorted[i][0] + ': ') + formatTime(sorted[i][1]));
       }
     }
   };
