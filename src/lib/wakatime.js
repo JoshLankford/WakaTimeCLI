@@ -4,6 +4,7 @@ function convertThis() {
 
   var Promise = require("bluebird");
   var request = Promise.promisify(require("request"));
+  var moment = require("moment");
   var clc = require('cli-color');
   var fs = require('fs');
 
@@ -51,25 +52,13 @@ function convertThis() {
 
   // Date function used to format date on API request
   var todaysDate = function(){
-    var day = new Date();
-    var dd = day.getDate();
-    var dd2 = dd-1;
-    var dd3 = dd-6;
-    var mm = day.getMonth()+1; //January is 0!
-    var yyyy = day.getFullYear();
-
-    if(dd<10) {
-      dd='0'+dd
-    } 
-    if(mm<10) {
-      mm='0'+mm
-    } 
 
     return {
-      day: mm+'/'+dd+'/'+yyyy,
-      yesterday: mm+'/'+dd2+'/'+yyyy,
-      week: mm+'/'+dd3+'/'+yyyy
+      day: moment().format('L'),
+      yesterday: moment().subtract(1, 'days').format('L'),
+      week: moment().subtract(6, 'days').format('L')
     }
+
   };
 
   // Calculates time for each language or project in an object
