@@ -1,6 +1,6 @@
 {
   "name": "wakatimecli",
-  "version": "0.1.5",
+  "version": "0.1.6",
     "repository": {
     "url": "https://github.com/JoshLankford/WakaTimeCLI"
   },
@@ -19,6 +19,7 @@
   "dependencies": {
     "bluebird": "^2.8.2",
     "cli-color": "^0.3.2",
-    "request": "^2.51.0"
+    "request": "^2.51.0",
+    "moment": "^2.9.0"
   }
 }
