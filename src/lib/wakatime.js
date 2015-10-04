@@ -56,7 +56,9 @@ function convertThis() {
     return {
       day: moment().format('L'),
       yesterday: moment().subtract(1, 'days').format('L'),
-      week: moment().subtract(6, 'days').format('L')
+      week: moment().subtract(6, 'days').format('L'),
+      month: moment().subtract(29, 'days').format('L'),
+      year: moment().subtract(364, 'days').format('L')
     }
 
   };
@@ -197,7 +199,7 @@ function convertThis() {
 
         // Week Data logged to terminal here
         console.log(' '); // Empty Line for formatting
-        console.log(' ' +cyan('Week: ') + gtHours + ' hours ' + gtMinutes + ' minutes (Total)'); // Prints calculated total hours/minutes
+        console.log(' ' +cyan(dayText +': ') + gtHours + ' hours ' + gtMinutes + ' minutes (Total)'); // Prints calculated total hours/minutes
         console.log(' '); // Empty Line for formatting
         printSection(languages, 'magenta'); // Prints each item in the obj
         console.log(' '); // Empty Line for formatting
@@ -205,7 +207,7 @@ function convertThis() {
         console.log(' '); // Empty Line for formatting
 
       } else {
-        console.log(error);
+        console.log('error - ', error);
       }
     })
   };
@@ -229,6 +231,13 @@ function convertThis() {
     } else if(val === '-w' || val === '-week') {
       var day = todaysDate();
       week(day.week, "Week", day.day);
+    } else if(val === '-m' || val === '-month') {
+      var day = todaysDate();
+      week(day.month, "Month", day.day);
+    } else if(val === '-yr' || val === '-year') {
+      var day = todaysDate();
+      console.log('year ', day.year, ' day ', day.day);
+      week(day.year, "Year", day.day);
     } else if(val === '-u' || val === '-user') {
       user();
     } else if(val === '-help') {
