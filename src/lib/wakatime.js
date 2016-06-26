@@ -109,7 +109,7 @@ function convertThis() {
         var body = JSON.parse(body);
         console.log('');
         console.log(cyan('WakaTime Account Details:'));
-        console.log(magenta('  Account Created: ') + body.data.created);
+        console.log(magenta('  Account Created: ') + body.data.created_at);
         console.log(magenta('  Email: ') + body.data.email);
         if(body.data.full_name > '') {
           console.log(magenta('  Full Name: ') + body.data.full_name);
@@ -122,7 +122,7 @@ function convertThis() {
   // Parse data for Today or Yesterday option & prints to terminal
   var details = function(day, dayText){
     var apiKey = readApiKey();
-    request("https://wakatime.com/api/v1/summary/daily?start="+day+"&end="+day+"&api_key="+apiKey, function (error, response, body) {
+    request("https://wakatime.com/api/v1/users/current/summaries?start="+day+"&end="+day+"&api_key="+apiKey, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         var body = JSON.parse(body);
 
@@ -152,7 +152,7 @@ function convertThis() {
   // Parse data for last seven days of work and print to console
   var week = function(day, dayText, day2){
     var apiKey = readApiKey();
-    request("https://wakatime.com/api/v1/summary/daily?start="+day+"&end="+day2+"&api_key="+apiKey, function (error, response, body) {
+    request("https://wakatime.com/api/v1/users/current/summaries?start="+day+"&end="+day2+"&api_key="+apiKey, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         var body = JSON.parse(body);
         var gtHours = 0;
@@ -168,7 +168,7 @@ function convertThis() {
 
         // Converts minutes to hours and adds to total
         if(gtMinutes > 59) {
-          var gtHours = gtHours + Math.floor(gtMinutes / 60);          
+          var gtHours = gtHours + Math.floor(gtMinutes / 60);
           var gtMinutes = gtMinutes % 60;
         }
 
@@ -253,6 +253,6 @@ function convertThis() {
       console.log('No arguments given');
     }
   });
-  
+
 }
 exports.convert = convertThis;

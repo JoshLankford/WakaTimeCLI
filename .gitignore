@@ -1,4 +1,4 @@
 /src/bin/bin/.wakatimeKey
-/node_modules
+**/node_modules
 .DS_Store
 npm-debug.log
