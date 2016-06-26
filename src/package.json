@@ -1,7 +1,7 @@
 {
   "name": "wakatimecli",
-  "version": "0.1.8",
-    "repository": {
+  "version": "0.1.9",
+  "repository": {
     "url": "https://github.com/JoshLankford/WakaTimeCLI"
   },
   "description": "See your WakaTime report directly in the terminal",
