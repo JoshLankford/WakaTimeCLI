@@ -8,11 +8,21 @@ function convertThis() {
   var clc = require('cli-color');
   var fs = require('fs');
 
+  function createColor(colorFn) {
+    // Only use the colorFn if we are not being PIPEd
+    return function() {
+      if (process.stdout.isTTY) {
+        return colorFn.apply(this, arguments);
+      } else {
+        return arguments[0];
+      }
+    }
+  }
   // Create clc color variables
-  var yellow = clc.yellow;
-  var blue = clc.blue;
-  var cyan = clc.cyan;
-  var magenta = clc.magenta;
+  var yellow = createColor(clc.yellow);
+  var blue = createColor(clc.blue);
+  var cyan = createColor(clc.cyan);
+  var magenta = createColor(clc.magenta);
 
   var apiString = '?api_key=';
   var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.env.HOME;
